@@ -1,6 +1,6 @@
 <template>
   <ion-grid>
-    <form @submit="onSubmit">
+    <form @submit.prevent="onSubmit">
       <ion-col>
         <ion-item>
           <ion-label>Zipcode:</ion-label>
@@ -28,8 +28,7 @@ export default {
     };
   },
   methods: {
-    onSubmit(e) {
-      e.preventDefault();
+    onSubmit() {
       // Zip Regex
       const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(this.zip);
       // Test for valid zip
